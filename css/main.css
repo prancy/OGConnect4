@@ -1,0 +1,31 @@
+body {
+    background: url(http://club31women.com/wp-content/uploads/2012/05/pink-stripes.jpg) repeat;
+}
+
+td {
+    border: 2px solid black;
+    margin: 0 auto;
+    height: 85px;
+    width: 85px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.board {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 26px;
+ }
+h1 {
+     text-align: center;
+     margin: 0 auto;
+ }
+h2 {
+    font-size: 20px;
+    margin top: 0 auto;
+    text-align: center;
+}
+#play {
+    display: block;
+    margin: 0 auto;
+}
