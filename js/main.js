@@ -32,12 +32,11 @@ function render () {
     ///// // how do we basically insert the ID of the td into the array and replace that with our indicated player's value (1 or -1)
 }
 // $('td').each(function(index){
-    var row = getRow(index);
-    var col = getCol(index);
-    // $(this).css('background-color', color[0]);
-    $(this).css('background-color', color[board[row][col]]);
-});
-}
+//     var row = getRow(index);
+//     var col = getCol(index);
+//     // $(this).css('background-color', color[0]);
+//     $(this).css('background-color', color[board[row][col]]);
+// });
 
 $('.board').on('click','td.cell', (function() {
     var idx = this.id
