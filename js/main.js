@@ -1,27 +1,51 @@
 // ------------------
 /*----- constants -----*/
 $(document).ready(function() {
-    alert("everything is ready, let's do this");
-});
+
 
 /*----- app's state (variables) -----*/
-var gameBoard;
 var turn;
 var winner;
 /*----- cached element references -----*/
 var $cell = $('td');
+
+var board = [ 
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0],
+]
 
 
 /*----- event listeners -----*/
 
 
 /*----- functions -----*/
-$('body').on('click','td.cell' (function() {
-    console.log(this);
-)};
+function render () {
+    var color = {
+        "-1": "URL",
+        "0": "URL",
+        "1": "URL",
+    }
+    ///// // how do we basically insert the ID of the td into the array and replace that with our indicated player's value (1 or -1)
+}
+// $('td').each(function(index){
+    var row = getRow(index);
+    var col = getCol(index);
+    // $(this).css('background-color', color[0]);
+    $(this).css('background-color', color[board[row][col]]);
+});
+}
+
+$('.board').on('click','td.cell', (function() {
+    var idx = this.id
+}));
+
 
 //
-
+});
 
 // Skeleton??
 
