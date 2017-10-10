@@ -25,6 +25,11 @@ h2 {
     margin top: 0 auto;
     text-align: center;
 }
+.button {
+    display: block;
+    margin: 0 auto;
+
+}
 #play {
     display: block;
     margin: 0 auto;

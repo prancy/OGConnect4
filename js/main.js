@@ -1,55 +1,70 @@
 // ------------------
-/*----- constants -----*/
 $(document).ready(function() {
+
+/*----- constants -----*/
 
 
 /*----- app's state (variables) -----*/
+
+var board;
 var turn;
 var winner;
+
 /*----- cached element references -----*/
-var $cell = $('td');
-
-var board = [ 
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-]
-
+var $cells = $('td');
 
 /*----- event listeners -----*/
 
-
-/*----- functions -----*/
-function render () {
-    var color = {
-        "-1": "URL",
-        "0": "URL",
-        "1": "URL",
-    }
-    ///// // how do we basically insert the ID of the td into the array and replace that with our indicated player's value (1 or -1)
-}
-// $('td').each(function(index){
-//     var row = getRow(index);
-//     var col = getCol(index);
-//     // $(this).css('background-color', color[0]);
-//     $(this).css('background-color', color[board[row][col]]);
-// });
-
-$('.board').on('click','td.cell', (function() {
-    var idx = this.id
-}));
-
-
-//
+$('button').on('click', function() {
+    var colIdx = parseInt(this.id);
+    var colArr = board[colIdx];
+    var rowIdx = board[colIdx].indexOf(0)
+    if (rowIdx === -1) return;
+    board[colIdx][rowIdx] = turn;
+    turn *= -1;
+    render();
 });
 
-// Skeleton??
+/*----- functions -----*/
+
+function init() {
+    board = [ 
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0]
+    ];
+    turn = 1;
+    winner = null;
+}
+
+init();
+render();
+
+function render () {
+    var color = {
+         "-1": 'pink',
+         "0": 'white',
+         "1": 'black' 
+    };
+
+    $cells.each(function() {
+        var $cell = $(this); 
+        var colIdx = $cell.attr('data-col');
+        var rowIdx = $cell.attr('data-row');
+        $cell.css('background-color', color[board[colIdx][rowIdx]]);
+    });
+
+    // TODO: disable column buttons when full
+
+}
 
 
-// GameBoard
+
+});
 // Have a board of 7 x 6 (w x h) - 42 total spaces
 // switch between a player's turn when each player makes a move (display each player's turn)
 
