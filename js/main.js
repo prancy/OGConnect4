@@ -1,11 +1,8 @@
-// ------------------
-$(document).ready(function() {
-
 /*----- constants -----*/
 
 
 /*----- app's state (variables) -----*/
-
+var player;
 var board;
 var turn;
 var winner;
@@ -23,6 +20,7 @@ $('button').on('click', function() {
     board[colIdx][rowIdx] = turn;
     turn *= -1;
     render();
+    
 });
 
 /*----- functions -----*/
@@ -41,12 +39,9 @@ function init() {
     winner = null;
 }
 
-init();
-render();
-
 function render () {
     var color = {
-         "-1": 'pink',
+         "-1": 'red',
          "0": 'white',
          "1": 'black' 
     };
@@ -57,53 +52,85 @@ function render () {
         var rowIdx = $cell.attr('data-row');
         $cell.css('background-color', color[board[colIdx][rowIdx]]);
     });
-
     // TODO: disable column buttons when full
-
 }
 
+function getWinner(colIdx, rowIdx) {
+    // return 1 or -1 if player wins, or if tie
+    var w = (checkHorzWin(colIdx, rowIdx) || checkVertWin(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDown(colIdx, rowIdx)); // etc., etc.
+    if (winner) return 
+    // return 'T' if no more squares remain (tie)
+    return null;
+}
+// Winning Logic
+// rowIdx = y
+// colIdx = x
+function checkHorzWin(colIdx, rowIdx) {
+    if (colIdx > 3) return null;
+    var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx][colIdx + 1] + board[rowIdx][colIdx + 2] + board[rowIdx][colIdx + 3]);
+    return (sum === 4) ? board[rowIdx][colIdx] : null;
+}
+function checkVertWin(colIdx, rowIdx) {
+    if (rowIdx > 2) return null;
+    var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx + 1][colIdx] + board[rowIdx+2][colIdx] + board[rowIdx + 3][colIdx]);
+    return (sum === 4) ? board[rowIdx][colIdx] : null;
+}
 
+// // going RIGHT and UP
+function checkDiagUp (colIdx, rowIdx) {
+    if (rowIdx > 6, colIdx > 2) return null;
+    var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx - 1][colIdx + 1] + board[rowIdx - 2][colIdx + 2] + board[rowIdx - 3][colIdx + 3]);
+    return (sum === 4) ? board[rowIdx][colIdx] : null;
+}
+// // going RIGHT and DOWN
+function checkDiagDown (colIdx, rowIdx) {
+    if (rowIdx > 2, colIdx > 2) return null;
+    var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx + 1][colIdx + 1] + board[rowIdx+2][colIdx + 2] + board[rowIdx + 3][colIdx + 3]);
+    return (sum === 4) ? board[rowIdx][colIdx] : null;
+}
+// function checkDiagDown(colIdx, rowIdx) {
+//     for (var y = 0; y <= 2; y++) {
+//         for (var x = 0; x <= 3; x++) {
+//             if (board[rowIdx][colIdx] !=0 && board[rowIdx][colIdx] == board[rowIdx+1][colIdx+1] && board[rowIdx][colIdx] == board[rowIdx+2][colIdx+2] && board[rowIdx][colIdx] == board[rowIdx+3][colIdx+3]) {
+//                 return (board[rowIdx][colIdx]);
+//             }
+//         }
+//     }
+// }
+init();
+render();
 
-});
-// Have a board of 7 x 6 (w x h) - 42 total spaces
-// switch between a player's turn when each player makes a move (display each player's turn)
+/*END*/
 
-// Dropping Chip Action
-// On each player's turn, have chip appear and be able to hover over column
-// hovering over the column allows it to highlight the column
-// if hovering on or over column, any click will drop the chip in the lowest available spot
-// available spot meaning that it is not already occupied with a chip, but force to stack on top of another one
+// function checkRow() {
+//     for (var y = 0; y <=)
+// }
+    //Coordinates need to come in as a parameter
+    //Player needs to come in as a parameter
 
+    //Tests so we can see what is happening
+    //checkPlayer = -1;
+    //x = 5;
+    //y = 4;
 
-// a person wins by connecting four chips in any direction(diagonal, left, right, top, bottom)
+/* possible winning logic for checkHozWin 
+    var sum = 0;
 
-// Winning Game Logic
-// Have an array of basically 42 possible spaces, starting from 00 to 41
-// Only start scanning for possible wins after total of >=8 turns, bc you need atleast four chips from ONE player to connect
-// Possible combinations of winning are... well, infinite (insert number here)
-// check vertical for column for winner
-// check for horizontal set value for winner
-// check for only three directions
+    while (x!=0 && board[x][y] == checkPlayer)
+    {
+        x--;
+        console.log("Hello");
+    }
 
-//jim's notes
+    x++;
+    if(x>3) x=3;
 
-// do a for loop
-// until winner found in a given column
-//iterate over each piece until winner 
-// check vertical winner / check Vert(colidx, diskidx);
+    for(var i = 0; i<4; i++)
+    {
+        sum += board[x][y];
+        x++;
+    }
 
-// board = []
+    if(sum == 4*checkPlayer) console.log("WINNER!!!");
+*/
 
-// BONUS //
-
-// Reset Button for Game
-// Make a reset button that ....actually resets?
-
-// Bonus
-// After player's win, make OG display that shows which player won
-// --------------
-
-// only want to check for 
-// var 
-
-// function (init) {}
