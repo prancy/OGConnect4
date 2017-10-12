@@ -1,6 +1,4 @@
 /*----- constants -----*/
-
-
 /*----- app's state (variables) -----*/
 var player;
 var board;
@@ -54,7 +52,7 @@ function render () {
     } else {
         $('#message').html("Player 2's Turn")
     }
-    //winning message
+    //declaring winner message
     if (winner === 1) {
         $('#message').html("Player 1 Wins!")
     } else if (winner === -1) {
@@ -66,7 +64,6 @@ function render () {
         var rowIdx = $cell.attr('data-row');
         $cell.css('background-color', color[board[colIdx][rowIdx]]);
     });
-    // TODO: disable column buttons when full
 }
 
 function getWinner(colIdx, rowIdx) {
@@ -113,38 +110,3 @@ function checkDiagUp(colIdx, rowIdx) {
 
 init();
 render();
-
-/*END*/
-
-// function checkRow() {
-//     for (var y = 0; y <=)
-// }
-    //Coordinates need to come in as a parameter
-    //Player needs to come in as a parameter
-
-    //Tests so we can see what is happening
-    //checkPlayer = -1;
-    //x = 5;
-    //y = 4;
-
-/* possible winning logic for checkHozWin 
-    var sum = 0;
-
-    while (x!=0 && board[x][y] == checkPlayer)
-    {
-        x--;
-        console.log("Hello");
-    }
-
-    x++;
-    if(x>3) x=3;
-
-    for(var i = 0; i<4; i++)
-    {
-        sum += board[x][y];
-        x++;
-    }
-
-    if(sum == 4*checkPlayer) console.log("WINNER!!!");
-*/
-

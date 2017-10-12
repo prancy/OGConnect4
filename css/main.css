@@ -7,10 +7,20 @@ td {
     margin: 0 auto;
     height: 85px;
     width: 85px;
-    border-radius: 50px;
+    border-radius: 20px;
 }
 .btn {
-    
+    margin-left: 34px;
+    margin-right: 32px;
+    margin-bottom: -4px;
+    margin-top: 10px;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 30px;
+}
+.btn:hover {
+    background-color: white;
+    color: #885EAD;
 }
 .board {
     margin-left: auto;
