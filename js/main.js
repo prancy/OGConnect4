@@ -11,16 +11,16 @@ var winner;
 var $cells = $('td');
 
 /*----- event listeners -----*/
-
-$('button').on('click', function() {
-    var colIdx = parseInt(this.id);
-    var colArr = board[colIdx];
-    var rowIdx = board[colIdx].indexOf(0)
+$('.btns').on('click', function(evt) {
+    console.log('button is clicked')
+    var colIdx = parseInt(evt.target.id),
+        rowIdx = board[colIdx].indexOf(0)
     if (rowIdx === -1) return;
     board[colIdx][rowIdx] = turn;
     turn *= -1;
+    winner = getWinner(colIdx, rowIdx);
+    console.log('Winner is ', winner)
     render();
-    
 });
 
 /*----- functions -----*/
@@ -56,47 +56,46 @@ function render () {
 }
 
 function getWinner(colIdx, rowIdx) {
-    // return 1 or -1 if player wins, or if tie
-    var w = (checkHorzWin(colIdx, rowIdx) || checkVertWin(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDown(colIdx, rowIdx)); // etc., etc.
-    if (winner) return 
-    // return 'T' if no more squares remain (tie)
-    return null;
+    if (winner) return;
+    for (var colIdx = 0; colIdx < 6; colIdx++) {
+        for (var rowIdx = 0; rowIdx < 5; rowIdx++ ) {
+            winner = checkRight(colIdx, rowIdx) || checkUp(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDown(colIdx, rowIdx)
+            if (winner) return; 
+        }
+    }
 }
-// Winning Logic
-// rowIdx = y
-// colIdx = x
-function checkHorzWin(colIdx, rowIdx) {
+
+// Check VERTICAL right
+function checkRight(colIdx, rowIdx) {
     if (colIdx > 3) return null;
     var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx][colIdx + 1] + board[rowIdx][colIdx + 2] + board[rowIdx][colIdx + 3]);
     return (sum === 4) ? board[rowIdx][colIdx] : null;
 }
-function checkVertWin(colIdx, rowIdx) {
-    if (rowIdx > 2) return null;
+
+// Check UP a column
+function checkUp(colIdx, rowIdx) {
+    if (rowIdx > 3) return null;
     var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx + 1][colIdx] + board[rowIdx+2][colIdx] + board[rowIdx + 3][colIdx]);
     return (sum === 4) ? board[rowIdx][colIdx] : null;
 }
 
-// // going RIGHT and UP
+// Going RIGHT and UP
 function checkDiagUp (colIdx, rowIdx) {
-    if (rowIdx > 6, colIdx > 2) return null;
+    if (rowIdx < 3 || colIdx > 3 ) return null;
+    console.log(rowIdx)
+    
     var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx - 1][colIdx + 1] + board[rowIdx - 2][colIdx + 2] + board[rowIdx - 3][colIdx + 3]);
     return (sum === 4) ? board[rowIdx][colIdx] : null;
 }
-// // going RIGHT and DOWN
+
+// Going RIGHT and DOWN
 function checkDiagDown (colIdx, rowIdx) {
-    if (rowIdx > 2, colIdx > 2) return null;
+    console.log(colIdx+3)
+    if (colIdx < 4 || rowIdx > 2) return null;
     var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx + 1][colIdx + 1] + board[rowIdx+2][colIdx + 2] + board[rowIdx + 3][colIdx + 3]);
     return (sum === 4) ? board[rowIdx][colIdx] : null;
 }
-// function checkDiagDown(colIdx, rowIdx) {
-//     for (var y = 0; y <= 2; y++) {
-//         for (var x = 0; x <= 3; x++) {
-//             if (board[rowIdx][colIdx] !=0 && board[rowIdx][colIdx] == board[rowIdx+1][colIdx+1] && board[rowIdx][colIdx] == board[rowIdx+2][colIdx+2] && board[rowIdx][colIdx] == board[rowIdx+3][colIdx+3]) {
-//                 return (board[rowIdx][colIdx]);
-//             }
-//         }
-//     }
-// }
+
 init();
 render();
 
