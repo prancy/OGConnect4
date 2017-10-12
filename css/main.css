@@ -2,7 +2,6 @@ body {
     background: url(https://cdn.dribbble.com/users/649554/screenshots/1778390/icecream-pattern.jpg)repeat;
 }
 
-
 td {
     border: 2px dotted green;
     margin: 0 auto;
@@ -18,12 +17,13 @@ td {
     margin-top: 26px;
  }
 h1 {
+     font-size: 50px;
      text-align: center;
      margin: 0 auto;
  }
 h2 {
     font-size: 20px;
-    margin top: 0 auto;
+    margin: 10px 0px;
     text-align: center;
 }
 .btns {

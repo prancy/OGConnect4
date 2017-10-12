@@ -12,16 +12,15 @@ var $cells = $('td');
 
 /*----- event listeners -----*/
 $('.btns').on('click', function(evt) {
-    console.log('button is clicked')
     var colIdx = parseInt(evt.target.id),
         rowIdx = board[colIdx].indexOf(0)
-    if (rowIdx === -1) return;
-    board[colIdx][rowIdx] = turn;
-    turn *= -1;
-    winner = getWinner(colIdx, rowIdx);
-    console.log('Winner is ', winner)
-    render();
-});
+    board[colIdx][rowIdx] = turn
+    turn = turn * -1
+    if (winner) return 
+    winner = getWinner(colIdx, rowIdx)
+    console.log(`winner is ${winner}`)
+    render()
+})
 
 /*----- functions -----*/
 
@@ -34,16 +33,16 @@ function init() {
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0]
-    ];
-    turn = 1;
-    winner = null;
+    ]
+    turn = 1
+    winner = null
 }
 
 function render () {
     var color = {
-         "-1": 'red',
+         "-1": '#4ece90',
          "0": 'white',
-         "1": 'black' 
+         "1": '#52361b' 
     };
 
     $cells.each(function() {
@@ -60,9 +59,10 @@ function getWinner(colIdx, rowIdx) {
     for (var colIdx = 0; colIdx < 6; colIdx++) {
         for (var rowIdx = 0; rowIdx < 5; rowIdx++ ) {
             winner = checkRight(colIdx, rowIdx) || checkUp(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDown(colIdx, rowIdx)
-            if (winner) return; 
+            if (winner) return winner
         }
     }
+    return null
 }
 
 // Check VERTICAL right
@@ -81,16 +81,13 @@ function checkUp(colIdx, rowIdx) {
 
 // Going RIGHT and UP
 function checkDiagUp (colIdx, rowIdx) {
-    if (rowIdx < 3 || colIdx > 3 ) return null;
-    console.log(rowIdx)
-    
+    if (rowIdx < 3 || colIdx > 3 ) return null;    
     var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx - 1][colIdx + 1] + board[rowIdx - 2][colIdx + 2] + board[rowIdx - 3][colIdx + 3]);
     return (sum === 4) ? board[rowIdx][colIdx] : null;
 }
 
 // Going RIGHT and DOWN
 function checkDiagDown (colIdx, rowIdx) {
-    console.log(colIdx+3)
     if (colIdx < 4 || rowIdx > 2) return null;
     var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx + 1][colIdx + 1] + board[rowIdx+2][colIdx + 2] + board[rowIdx + 3][colIdx + 3]);
     return (sum === 4) ? board[rowIdx][colIdx] : null;
