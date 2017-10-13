@@ -1,5 +1,6 @@
 
 /*----- app's state (variables) -----*/
+
 var player;
 var board;
 var turn;
