@@ -42,7 +42,7 @@ function init() {
 
 function render() {
     var color = {
-        "-1": '#ffbef5',
+        "-1": '',
         "0": 'white',
         "1": '#e1d0ff'
     };
