@@ -17,6 +17,9 @@ This game includes a seven-column and six-row grid in which a winner is declared
 # Inspiration:
 -My Little sister, Nikki and I love the movie Up. I was feeling homesick and she learned how to play this song on the piano (with momma's help). I dedicate my first game/project to my little sis and hope to make this game available to her on her tablet back at home!
 
+# Planning Stages
+Attached is a link to a Trello where you can see my initial process on creating this game.
+Visit it here https://trello.com/invite/b/Jp7aZqxG/f9434f910d5529b622cb046ff6370cc0/og-connect-4
 
 # Technologies Used:
 1. HTML
@@ -29,6 +32,7 @@ Please find the following link below to start playing:
 https://prancy.github.io/ogconnect4/
 
 Enjoy!
+
 
 # Next Steps
 1. Planned future features - light background music that is optional to keep
