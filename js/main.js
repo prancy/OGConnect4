@@ -9,16 +9,16 @@ var winner;
 var $cells = $('td');
 
 /*----- event listeners -----*/
-$('#play').on('click', function() {
+$('#play').on('click', function () {
     init();
     render();
 })
-$('.btns').on('click', function(evt) {
+$('.btns').on('click', function (evt) {
     var colIdx = parseInt(evt.target.id),
         rowIdx = board[colIdx].indexOf(0)
     board[colIdx][rowIdx] = turn
     turn = turn * -1
-    if (winner) return 
+    if (winner) return
     winner = getWinner(colIdx, rowIdx)
     // console.log(`winner is ${winner}`)
     render()
@@ -27,7 +27,7 @@ $('.btns').on('click', function(evt) {
 /*----- functions -----*/
 
 function init() {
-    board = [ 
+    board = [
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0],
@@ -40,11 +40,11 @@ function init() {
     winner = null
 }
 
-function render () {
+function render() {
     var color = {
-         "-1": 'red',
-         "0": 'white',
-         "1": 'black' 
+        "-1": '#ffbef5',
+        "0": 'white',
+        "1": '#e1d0ff'
     };
     // player's message
     if (turn === 1) {
@@ -58,8 +58,8 @@ function render () {
     } else if (winner === -1) {
         $('#message').html("Player 2 Wins!")
     }
-    $cells.each(function() {
-        var $cell = $(this); 
+    $cells.each(function () {
+        var $cell = $(this);
         var colIdx = $cell.attr('data-col');
         var rowIdx = $cell.attr('data-row');
         $cell.css('background-color', color[board[colIdx][rowIdx]]);
@@ -69,10 +69,10 @@ function render () {
 function getWinner(colIdx, rowIdx) {
     if (winner) return;
     for (var colIdx = 0; colIdx < 6; colIdx++) {
-        for (var rowIdx = 0; rowIdx < 5; rowIdx++ ) {
+        for (var rowIdx = 0; rowIdx < 5; rowIdx++) {
             if (checkRight) {
 
-        } 
+            }
             winner = checkRight(colIdx, rowIdx) || checkUp(colIdx, rowIdx) || checkDiagUp(colIdx, rowIdx) || checkDiagDown(colIdx, rowIdx)
             if (winner) return winner
         }
@@ -90,20 +90,20 @@ function checkRight(colIdx, rowIdx) {
 // Check UP a column
 function checkUp(colIdx, rowIdx) {
     if (rowIdx > 3) return null;
-    var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx + 1][colIdx] + board[rowIdx+2][colIdx] + board[rowIdx + 3][colIdx]);
+    var sum = Math.abs(board[rowIdx][colIdx] + board[rowIdx + 1][colIdx] + board[rowIdx + 2][colIdx] + board[rowIdx + 3][colIdx]);
     return (sum === 4) ? board[rowIdx][colIdx] : null;
 }
 
 // Going RIGHT and UP
-function checkDiagDown (colIdx, rowIdx) {
-    if (colIdx > 3 || rowIdx < 3) return null;    
+function checkDiagDown(colIdx, rowIdx) {
+    if (colIdx > 3 || rowIdx < 3) return null;
     var sum = Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx - 1] + board[colIdx + 2][rowIdx - 2] + board[colIdx + 3][rowIdx - 3]);
     return (sum === 4) ? board[colIdx][rowIdx] : null;
 }
 
 // Going RIGHT and DOWN
 function checkDiagUp(colIdx, rowIdx) {
-    if (colIdx > 3 || rowIdx > 2) return null;   
+    if (colIdx > 3 || rowIdx > 2) return null;
     var sum = Math.abs(board[colIdx][rowIdx] + board[colIdx + 1][rowIdx + 1] + board[colIdx + 2][rowIdx + 2] + board[colIdx + 3][rowIdx + 3]);
     return (sum === 4) ? board[colIdx][rowIdx] : null;
 }

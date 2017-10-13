@@ -1,87 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Connect Four</title>
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-<script
-src="https://code.jquery.com/jquery-3.2.1.js"
-integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-crossorigin="anonymous"></script>
-<script async defer type="text/javascript" src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Four</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script async defer type="text/javascript" src="js/main.js"></script>
 
 </head>
+
 <body>
     <h1>Connect Four</h1>
     <h2 id="message">Player's Turn Here</h2>
-<div class="btns">
-    <button class="btn" id="0-col">Drop</button>
-    <button class="btn" id="1-col">Drop</button>
-    <button class="btn" id="2-col">Drop</button>
-    <button class="btn" id="3-col">Drop</button>
-    <button class="btn" id="4-col">Drop</button>
-    <button class="btn" id="5-col">Drop</button>
-    <button class="btn" id="6-col">Drop</button>
-</div>
+    <div class="btns">
+        <button class="btn" id="0-col">Drop</button>
+        <button class="btn" id="1-col">Drop</button>
+        <button class="btn" id="2-col">Drop</button>
+        <button class="btn" id="3-col">Drop</button>
+        <button class="btn" id="4-col">Drop</button>
+        <button class="btn" id="5-col">Drop</button>
+        <button class="btn" id="6-col">Drop</button>
+    </div>
     <table class="board">
-    <tr class="column">
-        <td class="cell" data-col="0" data-row="5"></td>
-        <td class="cell" data-col="1" data-row="5"></td>
-        <td class="cell" data-col="2" data-row="5"></td>
-        <td class="cell" data-col="3" data-row="5"></td>
-        <td class="cell" data-col="4" data-row="5"></td>
-        <td class="cell" data-col="5" data-row="5"></td>
-        <td class="cell" data-col="6" data-row="5"></td>
-    </tr>
-    <tr class="column">
-        <td class="cell" data-col="0" data-row="4"></td>
-        <td class="cell" data-col="1" data-row="4"></td>
-        <td class="cell" data-col="2" data-row="4"></td>
-        <td class="cell" data-col="3" data-row="4"></td>
-        <td class="cell" data-col="4" data-row="4"></td>
-        <td class="cell" data-col="5" data-row="4"></td>
-        <td class="cell" data-col="6" data-row="4"></td>
-    </tr>
-    <tr class="column">
-        <td class="cell" data-col="0" data-row="3"></td>
-        <td class="cell" data-col="1" data-row="3"></td>
-        <td class="cell" data-col="2" data-row="3"></td>
-        <td class="cell" data-col="3" data-row="3"></td>
-        <td class="cell" data-col="4" data-row="3"></td>
-        <td class="cell" data-col="5" data-row="3"></td>
-        <td class="cell" data-col="6" data-row="3"></td>
-    </tr>
-    <tr class="column">
-        <td class="cell" data-col="0" data-row="2"></td>
-        <td class="cell" data-col="1" data-row="2"></td>
-        <td class="cell" data-col="2" data-row="2"></td>
-        <td class="cell" data-col="3" data-row="2"></td>
-        <td class="cell" data-col="4" data-row="2"></td>
-        <td class="cell" data-col="5" data-row="2"></td>
-        <td class="cell" data-col="6" data-row="2"></td>
-    </tr>
-    <tr class="column">
-        <td class="cell" data-col="0" data-row="1"></td>
-        <td class="cell" data-col="1" data-row="1"></td>
-        <td class="cell" data-col="2" data-row="1"></td>
-        <td class="cell" data-col="3" data-row="1"></td>
-        <td class="cell" data-col="4" data-row="1"></td>
-        <td class="cell" data-col="5" data-row="1"></td>
-        <td class="cell" data-col="6" data-row="1"></td>
-    </tr>
-    <tr class="column">
-        <td class="cell" data-col="0" data-row="0"></td>
-        <td class="cell" data-col="1" data-row="0"></td>
-        <td class="cell" data-col="2" data-row="0"></td>
-        <td class="cell" data-col="3" data-row="0"></td>
-        <td class="cell" data-col="4" data-row="0"></td>
-        <td class="cell" data-col="5" data-row="0"></td>
-        <td class="cell" data-col="6" data-row="0"></td>
-    </tr>
-</table>
-<br>
-<button id="play">Play Again!</button>
+        <tr class="column">
+            <td class="cell" data-col="0" data-row="5"></td>
+            <td class="cell" data-col="1" data-row="5"></td>
+            <td class="cell" data-col="2" data-row="5"></td>
+            <td class="cell" data-col="3" data-row="5"></td>
+            <td class="cell" data-col="4" data-row="5"></td>
+            <td class="cell" data-col="5" data-row="5"></td>
+            <td class="cell" data-col="6" data-row="5"></td>
+        </tr>
+        <tr class="column">
+            <td class="cell" data-col="0" data-row="4"></td>
+            <td class="cell" data-col="1" data-row="4"></td>
+            <td class="cell" data-col="2" data-row="4"></td>
+            <td class="cell" data-col="3" data-row="4"></td>
+            <td class="cell" data-col="4" data-row="4"></td>
+            <td class="cell" data-col="5" data-row="4"></td>
+            <td class="cell" data-col="6" data-row="4"></td>
+        </tr>
+        <tr class="column">
+            <td class="cell" data-col="0" data-row="3"></td>
+            <td class="cell" data-col="1" data-row="3"></td>
+            <td class="cell" data-col="2" data-row="3"></td>
+            <td class="cell" data-col="3" data-row="3"></td>
+            <td class="cell" data-col="4" data-row="3"></td>
+            <td class="cell" data-col="5" data-row="3"></td>
+            <td class="cell" data-col="6" data-row="3"></td>
+        </tr>
+        <tr class="column">
+            <td class="cell" data-col="0" data-row="2"></td>
+            <td class="cell" data-col="1" data-row="2"></td>
+            <td class="cell" data-col="2" data-row="2"></td>
+            <td class="cell" data-col="3" data-row="2"></td>
+            <td class="cell" data-col="4" data-row="2"></td>
+            <td class="cell" data-col="5" data-row="2"></td>
+            <td class="cell" data-col="6" data-row="2"></td>
+        </tr>
+        <tr class="column">
+            <td class="cell" data-col="0" data-row="1"></td>
+            <td class="cell" data-col="1" data-row="1"></td>
+            <td class="cell" data-col="2" data-row="1"></td>
+            <td class="cell" data-col="3" data-row="1"></td>
+            <td class="cell" data-col="4" data-row="1"></td>
+            <td class="cell" data-col="5" data-row="1"></td>
+            <td class="cell" data-col="6" data-row="1"></td>
+        </tr>
+        <tr class="column">
+            <td class="cell" data-col="0" data-row="0"></td>
+            <td class="cell" data-col="1" data-row="0"></td>
+            <td class="cell" data-col="2" data-row="0"></td>
+            <td class="cell" data-col="3" data-row="0"></td>
+            <td class="cell" data-col="4" data-row="0"></td>
+            <td class="cell" data-col="5" data-row="0"></td>
+            <td class="cell" data-col="6" data-row="0"></td>
+        </tr>
+    </table>
+    <br>
+    <button id="play">Play Again!</button>
 </body>
+
 </html>

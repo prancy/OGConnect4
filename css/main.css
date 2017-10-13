@@ -1,22 +1,25 @@
 body {
-    background: url(https://i.pinimg.com/originals/8d/48/ff/8d48ff92d6e2e7c17b18b34c010010b9.png)repeat;
+    background: url(https://i.pinimg.com/originals/8d/48/ff/8d48ff92d6e2e7c17b18b34c010010b9.png);
+    background-size: 1200px 800px;
 }
-
 td {
     border: 2px black;
     margin: 0 auto;
     height: 85px;
     width: 85px;
     border-radius: 20px;
+    background: url(https://i.imgur.com/UipzkcO.png) repeat;
+    background-size: 86px;
 }
 .btn {
-    margin-left: 34px;
-    margin-right: 32px;
+    margin-left: 11px;
+    margin-right: -5px;
     margin-bottom: -4px;
     margin-top: 10px;
     border: none;
     padding: 15px 32px;
-    border-radius: 30px;
+    border-radius: 10px;
+    background-color: #885EAD;
 }
 .btn:hover {
     background-color: white;
@@ -26,6 +29,8 @@ td {
     margin-left: auto;
     margin-right: auto;
     margin-top: 26px;
+    border-collapse: separate;
+    border-spacing: 10px;
  }
 h1 {
      font-size: 45px;
