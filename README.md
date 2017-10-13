@@ -23,7 +23,12 @@ This game includes a seven-column and six-row grid in which a winner is declared
 2. CSS
 3. Javascript/jQuery
 
-# Getting Started: <link>
+# Getting Started:
+Please find the following link below to start playing:
+
+https://prancy.github.io/ogconnect4/
+
+Enjoy!
 
 # Next Steps
 1. Planned future features - light background music that is optional to keep
