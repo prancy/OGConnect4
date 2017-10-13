@@ -1,34 +1,35 @@
 body {
-    background: url(https://i.pinimg.com/originals/8d/48/ff/8d48ff92d6e2e7c17b18b34c010010b9.png);
-    background-size: 1200px 800px;
+    background: url(https://i.imgur.com/yW3GEVf.png) repeat;
+    background-size: 1150px 700px;
 }
 td {
-    border: 2px black;
     margin: 0 auto;
     height: 85px;
     width: 85px;
     border-radius: 20px;
-    background: url(https://i.imgur.com/UipzkcO.png) repeat;
-    background-size: 86px;
+    background: url(https://i.imgur.com/lQpjbDR.png) no-repeat;
+    background-size: 57px;
+    background-position: 12px;
 }
 .btn {
-    margin-left: 11px;
-    margin-right: -5px;
+    margin-left: 10px;
+    margin-right: -4px;
     margin-bottom: -4px;
     margin-top: 10px;
-    border: none;
-    padding: 15px 32px;
+    border: 2px solid pink;
+    padding: 13px 27px;
     border-radius: 10px;
-    background-color: #885EAD;
+    background-color: rgb(255, 255, 164);
+    font-size: 15px;
 }
 .btn:hover {
-    background-color: white;
-    color: #885EAD;
+    background-color: rgb(199, 110, 255);
+    color: rgb(0, 0, 0);
 }
 .board {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 26px;
+    margin-top: 14px;
     border-collapse: separate;
     border-spacing: 10px;
  }
@@ -53,4 +54,9 @@ h2 {
 #play {
     display: block;
     margin: 0 auto;
+    border: 2px solid pink;
+    padding: 13px 27px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 164);
+    font-size: 15px;
 }
